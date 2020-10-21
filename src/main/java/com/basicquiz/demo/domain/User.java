@@ -1,14 +1,14 @@
 package com.basicquiz.demo.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-    private long id;
+
+    private long userId;
     private String name;
     private long age;
     private String avatar;

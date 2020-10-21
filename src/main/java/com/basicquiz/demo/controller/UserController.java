@@ -2,11 +2,10 @@ package com.basicquiz.demo.controller;
 
 import com.basicquiz.demo.domain.User;
 import com.basicquiz.demo.service.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UserController {
@@ -20,6 +19,13 @@ public class UserController {
     @ResponseBody
     public User getUserById(@PathVariable("id") long id) {
         return userService.getUserById(id);
+    }
+
+    @RequestMapping(value = "/users", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<Long> createUserInformation(@RequestBody User user) {
+        long id = userService.createUserInformation(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body(id);
     }
 
 }
