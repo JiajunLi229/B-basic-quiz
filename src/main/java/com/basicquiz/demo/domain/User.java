@@ -1,6 +1,4 @@
 package com.basicquiz.demo.domain;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 

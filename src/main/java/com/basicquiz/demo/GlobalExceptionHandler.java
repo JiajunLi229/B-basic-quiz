@@ -24,7 +24,6 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResult);
     }
 
-
     @ExceptionHandler(ResponseStatusException.class)
     public ResponseEntity<ErrorResult> handle(ResponseStatusException ex) {
 

@@ -1,10 +1,8 @@
 package com.basicquiz.demo.service;
-
 import com.basicquiz.demo.domain.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,5 +27,4 @@ public class UserService {
         UserMap.put(user.getUserId(), user);
         return user.getUserId();
     }
-
 }

@@ -1,10 +1,8 @@
 package com.basicquiz.demo.service;
-
 import com.basicquiz.demo.domain.Education;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,9 +37,5 @@ public class EducationService {
             educationList.add(education);
             educationListMap.put(id, educationList);
         }
-
-
     }
-
-
 }

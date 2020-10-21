@@ -1,12 +1,10 @@
 package com.basicquiz.demo.controller;
-
 import com.basicquiz.demo.domain.User;
 import com.basicquiz.demo.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 
 @Controller
