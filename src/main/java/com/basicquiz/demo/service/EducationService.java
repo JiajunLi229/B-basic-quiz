@@ -29,4 +29,19 @@ public class EducationService {
         }
         return educationArrayList;
     }
+
+    public void createEducationInformation(Long id, Education education) {
+        education.setId(id);
+        if (educationListMap.containsKey(id)) {
+            educationListMap.get(id).add(education);
+        } else {
+            List<Education> educationList = new ArrayList<>();
+            educationList.add(education);
+            educationListMap.put(id, educationList);
+        }
+
+
+    }
+
+
 }

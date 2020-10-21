@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @Controller
 public class UserController {
     private final UserService userService;
@@ -23,7 +25,7 @@ public class UserController {
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Long> createUserInformation(@RequestBody User user) {
+    public ResponseEntity<Long> createUserInformation(@RequestBody @Valid User user) {
         long id = userService.createUserInformation(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(id);
     }
