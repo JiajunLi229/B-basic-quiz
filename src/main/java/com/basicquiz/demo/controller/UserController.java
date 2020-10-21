@@ -29,5 +29,4 @@ public class UserController {
         long id = userService.createUserInformation(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(id);
     }
-
 }
