@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+//TODO GTB-知识点: - 用 @RestController 替代 @Controller 和 @ResponseBody 的组合。
+//TODO GTB-知识点: - 用 @GetMapping、@PostMapping 等代替 @RequestMapping。
+
 @Controller
 @CrossOrigin
 public class EducationController {

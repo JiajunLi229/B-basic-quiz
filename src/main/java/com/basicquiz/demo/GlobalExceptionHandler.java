@@ -9,6 +9,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Date;
 import java.util.Objects;
 
+//TODO GTB-工程实践: - 两个方法里的重复代码有点多，可以提取一下。
 @ControllerAdvice
 public class GlobalExceptionHandler {
 

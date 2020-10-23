@@ -21,6 +21,7 @@ public class EducationService {
     }
 
     public List<Education> getEducationListById(Long id) {
+        //TODO GTB-工程实践: - EducationService.java:24 建议此处使用 Optional API。
         List<Education> educationArrayList = educationListMap.get(id);
         if (educationArrayList == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Education background not found");
@@ -30,6 +31,7 @@ public class EducationService {
 
     public void createEducationInformation(Long id, Education education) {
         education.setId(id);
+        //TODO GTB-工程实践: - EducationService.java:34 可以使用 return early pattern。
         if (educationListMap.containsKey(id)) {
             educationListMap.get(id).add(education);
         } else {

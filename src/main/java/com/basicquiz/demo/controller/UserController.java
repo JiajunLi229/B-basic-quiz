@@ -25,6 +25,7 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Long> createUserInformation(@RequestBody @Valid User user) {
         long id = userService.createUserInformation(user);
+        //TODO GTB-知识点: - 用了 @ResponseStatus 和 @RestController 的话，就不需要再用 ResponseEntity.status(HttpStatus.CREATED).body(id) 了。
         return ResponseEntity.status(HttpStatus.CREATED).body(id);
     }
 }
