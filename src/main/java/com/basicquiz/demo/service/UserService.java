@@ -1,30 +1,28 @@
 package com.basicquiz.demo.service;
 import com.basicquiz.demo.domain.User;
-import org.springframework.http.HttpStatus;
+import com.basicquiz.demo.repository.UserRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
-    private final Map<Long, User> UserMap = new HashMap<>();
+    private final UserRepository userRepository;
 
-    public UserService() {
-        UserMap.put((long) 1, new User( 1, "Jiajun", 24, "https://inews.gtimg.com/newsapp_match/0/3581582328/0", "hello"));
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
-    public User getUserById(Long id) {
-        User user = UserMap.get(id);
-        if (user == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found");
-        }
-        return user;
+    public Optional<User> getUserById(Integer id) {
+
+        return userRepository.findById(id);
     }
 
-    public Long createUserInformation(User user) {
-        user.setUserId(UserMap.size() + 1);
-        UserMap.put(user.getUserId(), user);
-        return user.getUserId();
+    public Integer createUserInformation(User user) {
+        return userRepository.save(user).getId();
+    }
+
+    public List<User> findUsers() {
+        return userRepository.findAll();
     }
 }

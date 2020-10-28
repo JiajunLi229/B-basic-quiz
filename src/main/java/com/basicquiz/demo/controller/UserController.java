@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 public class UserController {
@@ -17,7 +18,7 @@ public class UserController {
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public User getUserById(@PathVariable("id") long id) {
+    public Optional<User> getUserById(@PathVariable("id") Integer id) {
         return userService.getUserById(id);
     }
 
